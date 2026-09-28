@@ -13,7 +13,7 @@ export default function Home() {
     <section className="wordmark" data-scene="sky" aria-label="We are Dynamic">
       <div className="wordmark-sticky"><p className="display wordmark-text" aria-hidden="true">Dynamic<span>.</span></p></div>
       <div className="wordmark-swirl" aria-hidden="true" />
-      <p className="wordmark-caption wrap" data-rise>We are Dynamic – we are your product solutions architect</p>
+      <p className="wordmark-caption wrap" data-rise>We are Dynamic. We are your product solutions architect.</p>
     </section>
 
     <section className="section" id="welcome" data-scene="white">
@@ -37,11 +37,11 @@ export default function Home() {
         <ul className="pairs">
           <li className="pair">
             <div className="pair-media" data-clip>{/* eslint-disable-next-line @next/next/no-img-element */}<img data-parallax src="/brand/DEMS-Rotator-3.jpg" alt="A Dynamic EMS test engineer at a workstation" loading="lazy" /></div>
-            <div className="pair-copy"><span className="pair-index" data-rise>01</span><h3 data-rise>Enabling educated OEMs to evolve</h3></div>
+            <div className="pair-copy" data-rise><span className="pair-index">01</span><h3>Enabling educated OEMs to evolve</h3></div>
           </li>
-          <li className="pair pair-flip">
+          <li className="pair">
             <div className="pair-media" data-clip>{/* eslint-disable-next-line @next/next/no-img-element */}<img data-parallax src="/brand/DEMS-Rotator-2.jpg" alt="Engineers at work in a product development studio" loading="lazy" /></div>
-            <div className="pair-copy"><span className="pair-index" data-rise>02</span><h3 data-rise>Enabling developmental OEMs to accelerate</h3></div>
+            <div className="pair-copy" data-rise><span className="pair-index">02</span><h3>Enabling developmental OEMs to accelerate</h3></div>
           </li>
         </ul>
         <p className="statement" data-rise>Quite simply, we dynamically enable all types of technology companies to optimise their performance.</p>
@@ -56,9 +56,18 @@ export default function Home() {
         </div>
         <ol className="pillar-list">
           {pillars.map((pillar, index) => <li key={pillar.name} data-rise>
-            <a href={pillar.href}><span className="pillar-index">0{index + 1}</span><span className="pillar-name">{pillar.name}</span><span className="pillar-note">{pillar.note}</span><Arrow /></a>
+            <a href={pillar.name === "Dynamic Markets" ? "#markets" : pillar.href}><span className="pillar-index">0{index + 1}</span><span className="pillar-name">{pillar.name}</span><span className="pillar-note">{pillar.note}</span><Arrow /></a>
           </li>)}
         </ol>
+
+        {/* Markets sit inside the Dynamic section, as the "Dynamic Markets" pillar opened out. */}
+        <div className="dynamic-markets" id="markets">
+          <div className="section-head section-head-row">
+            <div><Eyebrow>Dynamic Markets</Eyebrow><h2 className="heading" data-rise>Enabling scale, scope & speed</h2></div>
+            <div data-rise><TextLink href={`${live}/market-sectors/`}>All market sectors</TextLink></div>
+          </div>
+          <Markets />
+        </div>
       </div>
     </section>
 
@@ -68,16 +77,6 @@ export default function Home() {
         <Pill href={film} external>Play film</Pill>
         <h2 className="display film-title" id="film-title" data-rise>We are your product solutions architect</h2>
         <p data-rise>Operating across diversified markets, our many years of experience and investment in state of the art technology enables us to support your PCB Assembly and electronic product build throughout the product life cycle.</p>
-      </div>
-    </section>
-
-    <section className="section" data-scene="white" aria-labelledby="markets">
-      <div className="wrap">
-        <div className="section-head section-head-row">
-          <div><Eyebrow>Markets</Eyebrow><h2 className="heading" id="markets" data-rise>Enabling scale, scope & speed</h2></div>
-          <div data-rise><TextLink href={`${live}/market-sectors/`}>All market sectors</TextLink></div>
-        </div>
-        <Markets />
       </div>
     </section>
 

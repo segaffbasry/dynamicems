@@ -139,7 +139,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-bar">
-        <p>Copyright {new Date().getFullYear()} – All rights reserved</p>
+        <p>Copyright {new Date().getFullYear()}. All rights reserved</p>
         <a href="https://dynamic-ems.com/cookies-privacy/">Cookies & privacy policy</a>
       </div>
     </div>

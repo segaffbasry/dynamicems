@@ -6,8 +6,21 @@ export type Post = {
   image: { src: string; alt: string; width: number | null; height: number | null } | null;
 };
 
+/* House style: no en or em dashes anywhere on the site. The crawled copy keeps them verbatim in posts.json,
+   so they are rewritten here: ranges become "to", a dash after a short lead-in (a heading or label) becomes
+   a colon, a trailing dash becomes a colon, and any other dash becomes a comma. */
+const D = "[\u2013\u2014]";
+export function undash(text: string) {
+  return text
+    .replace(new RegExp(`(\\d)\\s*${D}\\s*(\\d)`, "g"), "$1 to $2")
+    .replace(new RegExp(`\\s*${D}\\s*(?=<\\/|$)`, "g"), ":")
+    .replace(new RegExp(`(^|>)([^<>.!?;:]{1,48}?)[\\s\\u00a0]+${D}[\\s\\u00a0]+`, "g"), "$1$2: ")
+    .replace(/Dynamic EMS[\s\u00a0]+[\u2013\u2014][\s\u00a0]+/g, "Dynamic EMS: ")
+    .replace(new RegExp(`[\\s\\u00a0]*${D}[\\s\\u00a0]*`, "g"), ", ");
+}
+
 // All 68 posts from the live site's post sitemap, newest first.
-export const posts = data as Post[];
+export const posts = (data as Post[]).map((post) => ({ ...post, title: undash(post.title), excerpt: undash(post.excerpt), html: undash(post.html) }));
 
 export const categorySlug = (name: string) => name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
