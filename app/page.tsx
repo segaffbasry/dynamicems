@@ -54,20 +54,24 @@ export default function Home() {
           <Eyebrow>We are Dynamic</Eyebrow>
           <h2 className="heading" id="pillars" data-rise>From design to distribution.</h2>
         </div>
-        <ol className="pillar-list">
-          {pillars.map((pillar, index) => <li key={pillar.name} data-rise>
-            <a href={pillar.name === "Dynamic Markets" ? "#markets" : pillar.href}><span className="pillar-index">0{index + 1}</span><span className="pillar-name">{pillar.name}</span><span className="pillar-note">{pillar.note}</span><Arrow /></a>
-          </li>)}
-        </ol>
-
-        {/* Markets sit inside the Dynamic section, as the "Dynamic Markets" pillar opened out. */}
+        {/* Markets lead the Dynamic section; the six pillars follow as a compact grid. */}
         <div className="dynamic-markets" id="markets">
-          <div className="section-head section-head-row">
-            <div><Eyebrow>Dynamic Markets</Eyebrow><h2 className="heading" data-rise>Enabling scale, scope & speed</h2></div>
+          <div className="subhead">
+            <div><p className="eyebrow" data-rise>Dynamic Markets</p><h3 className="subheading" data-rise>Enabling scale, scope & speed</h3></div>
             <div data-rise><TextLink href={`${live}/market-sectors/`}>All market sectors</TextLink></div>
           </div>
           <Markets />
         </div>
+
+        <ol className="pillar-grid">
+          {pillars.map((pillar, index) => <li key={pillar.name} data-rise>
+            <a href={pillar.href}>
+              <span className="pillar-top"><span className="pillar-index">0{index + 1}</span><Arrow /></span>
+              <span className="pillar-name">{pillar.name}</span>
+              <span className="pillar-note">{pillar.note}</span>
+            </a>
+          </li>)}
+        </ol>
       </div>
     </section>
 
