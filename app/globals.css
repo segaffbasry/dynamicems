@@ -46,7 +46,7 @@ ul,ol{padding:0;list-style:none}
 .heading{font:700 clamp(30px,1rem + 2.8vw,58px)/1.08 var(--ui);letter-spacing:-.025em;max-width:16ch}
 .heading-wide{max-width:24ch}
 .lede{font-size:clamp(19px,1rem + .5vw,24px);line-height:1.5;font-weight:500}
-.statement{font:600 clamp(22px,1rem + 1.4vw,34px)/1.25 var(--ui);letter-spacing:-.02em;max-width:30ch;margin-top:clamp(40px,4vw,64px)}
+.statement{font:600 clamp(22px,1rem + 1.4vw,34px)/1.25 var(--ui);letter-spacing:-.02em;max-width:30ch;margin-top:clamp(32px,3vw,48px)}
 
 .text-link{display:inline-flex;align-items:center;gap:14px;font:600 13px/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;padding:14px 0;border-bottom:1px solid currentColor;transition:opacity .15s}
 .text-link:hover{opacity:.6}
@@ -123,16 +123,18 @@ ul,ol{padding:0;list-style:none}
 .scroll-cue{padding:10px 0;transition:opacity .15s}.scroll-cue:hover{opacity:.6}
 
 /* Sticky wordmark (Heart's ES-36 slide): wordmark sticks, the swirl scrolls up over it. */
-.wordmark{position:relative;padding-bottom:clamp(48px,5vw,80px)}
-.wordmark-sticky{position:sticky;top:0;height:62svh;display:flex;align-items:center;justify-content:center;padding-top:clamp(40px,6vh,70px);overflow:hidden;pointer-events:none}
+.wordmark{position:relative;padding-bottom:clamp(24px,3vw,48px)}
+.wordmark-sticky{position:sticky;top:0;height:52svh;display:flex;align-items:flex-start;justify-content:center;padding-top:clamp(28px,4vh,48px);overflow:hidden;pointer-events:none}
 .wordmark-text{font-size:17vw;line-height:.9;letter-spacing:-.04em;color:#fff;white-space:nowrap;user-select:none}
 .wordmark-text span{color:var(--coral)}
-.wordmark-swirl{position:relative;z-index:2;margin-top:-30svh;height:22vw;min-height:140px;background:var(--coral);-webkit-mask:url(/brand/DEMS-Colour-Swirl-new.png) center/100% 100% no-repeat;mask:url(/brand/DEMS-Colour-Swirl-new.png) center/100% 100% no-repeat}
+.wordmark-swirl{position:relative;z-index:2;margin-top:-32svh;height:22vw;min-height:140px;background:var(--coral);-webkit-mask:url(/brand/DEMS-Colour-Swirl-new.png) center/100% 100% no-repeat;mask:url(/brand/DEMS-Colour-Swirl-new.png) center/100% 100% no-repeat}
 .wordmark-caption{position:relative;z-index:2;margin-top:clamp(20px,3vw,44px);font:600 clamp(22px,1rem + 1.4vw,36px)/1.2 var(--ui);letter-spacing:-.015em;max-width:24ch;text-align:center;color:rgb(var(--fg))}
 
 /* Sections */
 /* Spacing kept tight: review flagged large empty gaps between sections. */
-.section{padding-block:clamp(56px,6vw,96px)}
+.section{padding-block:clamp(40px,4.5vw,72px)}
+/* The backdrop is one continuous field, so stacked sections share a single gap instead of doubling it. */
+.section+.section{padding-top:0}
 .section-tight{padding-top:0}
 .section-head{margin-bottom:clamp(32px,3.5vw,56px)}
 .subhead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(24px,2.5vw,40px)}
@@ -154,7 +156,7 @@ ul,ol{padding:0;list-style:none}
 .pair-copy h3{font:700 clamp(20px,.5rem + 1.4vw,30px)/1.15 var(--ui);letter-spacing:-.02em;max-width:20ch}
 
 /* The six pillars: a compact 3x2 grid of hairline cards instead of oversized rows. */
-.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,6vw,90px);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,4vw,64px);border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .pillar-grid li{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .pillar-grid a{display:grid;gap:10px;height:100%;padding:clamp(20px,2vw,28px);transition:background .25s}
 .pillar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:clamp(14px,1.6vw,24px)}
@@ -164,10 +166,10 @@ ul,ol{padding:0;list-style:none}
 .pillar-grid a:hover{background:rgb(var(--fg) / .04)}
 .pillar-grid a:hover .arrow{transform:translateX(6px)}
 
-.film{position:relative;min-height:80svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.film{position:relative;min-height:70svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
 .film-media{position:absolute;inset:0;overflow:hidden}
 .film-media img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
-.film-copy{position:relative;padding-block:clamp(56px,7vw,100px);display:grid;gap:30px;justify-items:start}
+.film-copy{position:relative;padding-block:clamp(48px,5vw,80px);display:grid;gap:30px;justify-items:start}
 .film-title{font-size:clamp(40px,1rem + 5.4vw,104px);max-width:13ch}
 .film-copy p{max-width:52ch;color:rgba(255,255,255,.7)}
 
